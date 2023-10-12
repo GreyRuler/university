@@ -1,0 +1,44 @@
+.input-container {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #999;
+    outline: none;
+    border-radius: .5rem;
+}
+
+.input-label {
+    position: absolute;
+    top: calc(50% - .6rem);
+    left: 1rem;
+    font-size: 1em;
+    pointer-events: none;
+    transition: 0.2s ease-out;
+    color: #999999;
+}
+
+.input-field::placeholder {
+    color: transparent;
+}
+
+.input-field:focus::placeholder {
+    color: transparent; /* Цвет текста в placeholder при активном инпуте */
+}
+
+.input-field:focus + .input-label {
+    top: -0.8rem;
+    font-size: .9em;
+    color: rgb(255, 171, 0); /* Цвет текста при активном инпуте */
+    background-color: white;
+}
+
+.input-field:not(:placeholder-shown) + .input-label {
+    top: -0.8rem;
+    font-size: .9em;
+    color: rgb(255, 171, 0); /* Цвет текста при неактивном инпуте с текстом */
+    background-color: white;
+}

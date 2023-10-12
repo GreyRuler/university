@@ -1,0 +1,226 @@
+.container {
+    background-color: rgb(255, 255, 255);
+    color: rgb(33, 43, 54);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-image: none;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(145, 158, 171, 0.2) 0 0 2px 0, rgba(145, 158, 171, 0.12) 0 12px 24px -4px;
+    border-radius: 16px;
+    z-index: 0;
+}
+
+.table-tabs {
+    overflow: hidden;
+    min-height: 48px;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: rgba(145, 158, 171, 0.08) 0 -2px 0 0 inset;
+}
+
+.table-tablist {
+    display: flex;
+    white-space: nowrap;
+}
+
+/*.table-tablist {*/
+/*    scrollbar-width: none;*/
+/*    -ms-overflow-style: none;*/
+/*}*/
+
+/*.table-tablist::-webkit-scrollbar {*/
+/*    display: none;*/
+/*}*/
+
+
+.table-tablist > *:not(:last-child) {
+    margin-right: 40px;
+}
+
+.table-tab {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    margin: 0;
+    border-radius: 0;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    line-height: 1.25;
+    font-size: 0.875rem;
+    text-transform: unset;
+    font-family: "Public Sans", sans-serif;
+    max-width: 360px;
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    white-space: normal;
+    text-align: center;
+    flex-direction: row;
+    color: inherit;
+    padding: 0;
+    opacity: 1;
+    min-width: 48px;
+    min-height: 48px;
+    font-weight: 600;
+}
+
+.table-tab.selected {
+    border-bottom: 3px solid black;
+}
+
+.tab-count {
+    height: 24px;
+    min-width: 24px;
+    line-height: 0;
+    border-radius: 6px;
+    cursor: default;
+    -webkit-box-align: center;
+    align-items: center;
+    white-space: nowrap;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-transform: capitalize;
+    padding: 0 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    color: rgb(33, 43, 54);
+    background-color: rgb(255, 171, 0);
+    margin-left: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    min-width: 960px;
+}
+
+table thead {
+    display: table-header-group;
+}
+
+table tbody {
+
+}
+
+table tr {
+    color: inherit;
+    display: table-row;
+    vertical-align: middle;
+    outline: 0px;
+}
+
+table th {
+    line-height: 1.5rem;
+    font-family: "Public Sans", sans-serif;
+    display: table-cell;
+    vertical-align: inherit;
+    border-bottom: 1px dashed rgb(241, 243, 244);
+    text-align: left;
+    padding: 16px;
+    font-size: 14px;
+    color: rgb(99, 115, 129);
+    font-weight: 600;
+    background-color: rgb(244, 246, 248);
+}
+
+table th span {
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    padding: 0px;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    flex-direction: inherit;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+table th span.active {
+    color: rgb(33, 43, 54);
+}
+
+table td {
+    line-height: 1.57143;
+    font-size: 0.875rem;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    display: table-cell;
+    vertical-align: inherit;
+    border-bottom: 1px dashed rgb(241, 243, 244);
+    text-align: left;
+    padding: 16px;
+    color: rgb(33, 43, 54);
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    text-align: end;
+    padding: 0 1rem 0 0;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    padding: 0 0 0 1rem;
+}
+
+colgroup col:last-child {
+    width: 6rem;
+}
+
+button.option {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    text-align: center;
+    flex: 0 0 auto;
+    font-size: 1.5rem;
+    padding: 8px;
+    border-radius: 50%;
+    overflow: visible;
+    color: rgb(99, 115, 129);
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+button.option:hover {
+    background-color: rgba(99, 115, 129, 0.08);
+}
