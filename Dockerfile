@@ -20,5 +20,5 @@ RUN composer install --no-dev --optimize-autoloader
 COPY /app/composer .
 
 # Этап 3: Создание PHP-FPM-образа
-FROM php:7.4-fpm
+FROM php:8.1-fpm
 COPY . /var/www/html
