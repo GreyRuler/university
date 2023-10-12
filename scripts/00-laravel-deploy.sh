@@ -11,6 +11,8 @@ ls -la
 echo "Running composer"
 composer install --no-dev --optimize-autoloader --working-dir=/var/www/html
 
+ls -la
+
 echo "Running install requirements for backend"
 npm install
 npm run build
