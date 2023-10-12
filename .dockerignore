@@ -1,0 +1,7 @@
+node_modules
+vendor
+logs
+resources/js/node_modules
+
+config/secrets.json
+.env
