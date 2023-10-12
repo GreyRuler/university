@@ -1,4 +1,4 @@
-FROM tangramor/nginx-php8-fpm:php8.2.11_node20.8.0
+FROM tangramor/nginx-php8-fpm:php8.2.2_node19.6.0
 
 COPY . .
 
