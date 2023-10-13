@@ -1,24 +1,24 @@
 FROM tangramor/nginx-php8-fpm:php8.2.2_node19.6.0
 
 COPY . .
+
+WORKDIR /app
+COPY . /app
+RUN ls -l
+RUN npm install
 RUN composer install --no-dev --optimize-autoloader
-#WORKDIR /app
-#COPY . /app
-#RUN ls -l
-#RUN npm install
-#RUN composer install --no-dev --optimize-autoloader
-#
-#WORKDIR /app/resources/js
-#RUN ls -l
-#RUN npm install
-#RUN npm run build
-#
-#WORKDIR /app
-#RUN ls -l
-#COPY . .
-#
-#WORKDIR .
-#RUN ls -l
+
+WORKDIR /app/resources/js
+RUN ls -l
+RUN npm install
+RUN npm run build
+
+WORKDIR /app
+RUN ls -l
+COPY . .
+
+WORKDIR .
+RUN ls -l
 
 # Image config
 ENV SKIP_COMPOSER 1
