@@ -3,17 +3,15 @@ FROM tangramor/nginx-php8-fpm:php8.2.2_node19.6.0
 # Этап 1: Установка js-зависимостей
 WORKDIR /app
 COPY . /app
-#RUN ls -l
-#RUN npm install
-#RUN composer install --no-dev --optimize-autoloader
+RUN npm install
+RUN composer install --no-dev --optimize-autoloader
 
 WORKDIR /app/resources/js
-RUN ls -l
-#RUN npm install
-#RUN npm run build
+RUN npm install
+RUN npm run build
 
-#WORKDIR /
-#COPY . .
+WORKDIR /
+COPY . .
 
 # Image config
 ENV SKIP_COMPOSER 1
