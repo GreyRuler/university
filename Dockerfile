@@ -3,14 +3,11 @@ FROM tangramor/nginx-php8-fpm:php8.2.2_node19.6.0
 # Этап 1: Установка js-зависимостей
 WORKDIR /app
 COPY . /app
-RUN rm -rf node_modules
-RUN rm -f package-lock.json
-RUN npm cache clean --force
 RUN ls -l
 RUN npm install
 RUN composer install --no-dev --optimize-autoloader
-
-WORKDIR /resources/js
+RUN cd /resources/js
+RUN ls -l
 RUN npm install
 RUN npm run build
 
