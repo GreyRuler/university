@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . /app
 RUN ls -l
 RUN npm install
-RUN composer install --no-dev --optimize-autoloader --working-dir=/var/www/html
+RUN composer install --no-dev --optimize-autoloader
 
 WORKDIR /app/resources/js
 RUN ls -l
