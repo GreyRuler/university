@@ -2,9 +2,7 @@
 #echo "Running composer"
 #composer install --no-dev --optimize-autoloader --working-dir=/var/www/html
 
-composer -v
-php -v
-npm -v
+ls -l
 
 #echo "Running install requirements for backend"
 #npm install
