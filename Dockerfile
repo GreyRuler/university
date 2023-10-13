@@ -1,22 +1,15 @@
 FROM tangramor/nginx-php8-fpm:php8.2.2_node19.6.0
 
 # Этап 1: Установка js-зависимостей
-WORKDIR /app/laravel
-COPY package.json package-lock.json /app/laravel/
+WORKDIR /
 RUN npm install
-COPY /app/laravel .
+RUN composer install --no-dev --optimize-autoloader
 
-WORKDIR /app/react
-COPY resources/js/package.json resources/js/package-lock.json /app/react/
+WORKDIR /resources/js
 RUN npm install
 RUN npm run build
-COPY /app/react resources/js
 
-# Этап 2: Установка php-зависимостей
-WORKDIR /app/composer
-RUN composer install --no-dev --optimize-autoloader
-COPY /app/composer .
-
+WORKDIR /
 COPY . .
 
 # Image config
