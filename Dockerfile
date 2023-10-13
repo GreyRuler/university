@@ -20,7 +20,8 @@ ENV RUN_SCRIPTS 1
 ENV REAL_IP_HEADER 1
 
 # Laravel config
-ENV APP_ENV production
+#ENV APP_ENV production
+ENV APP_ENV local
 ENV APP_DEBUG false
 ENV LOG_CHANNEL stderr
 
