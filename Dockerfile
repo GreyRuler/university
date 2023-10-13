@@ -15,6 +15,7 @@ COPY . .
 
 FROM richarvey/nginx-php-fpm:latest
 
+WORKDIR .
 RUN ls -l
 
 COPY --from=pre . .
