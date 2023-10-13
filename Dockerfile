@@ -18,7 +18,7 @@ FROM richarvey/nginx-php-fpm:latest
 WORKDIR .
 RUN ls -l
 
-COPY --from=pre . .
+COPY --from=pre /app .
 WORKDIR .
 RUN ls -l
 
