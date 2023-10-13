@@ -4,13 +4,22 @@ WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
-RUN ls -l
 
 FROM richarvey/nginx-php-fpm:latest
 
-RUN ls -l
 COPY --from=pre /app .
-RUN ls -l
+
+RUN apt update && apt install  openssh-server sudo -y
+
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test
+
+RUN  echo 'test:test' | chpasswd
+
+RUN service ssh start
+
+EXPOSE 22
+
+CMD ["/usr/sbin/sshd","-D"]
 
 # Image config
 ENV SKIP_COMPOSER 1
