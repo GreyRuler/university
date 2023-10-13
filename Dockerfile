@@ -4,20 +4,14 @@ COPY . .
 
 WORKDIR /app
 COPY . /app
-RUN ls -l
 RUN npm install
 
 WORKDIR /app/resources/js
-RUN ls -l
 RUN npm install
 RUN npm run build
 
 WORKDIR /app
-RUN ls -l
 COPY . .
-
-WORKDIR .
-RUN ls -l
 
 FROM richarvey/nginx-php-fpm:latest
 
