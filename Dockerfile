@@ -1,21 +1,17 @@
 FROM tangramor/nginx-php8-fpm:php8.2.2_node19.6.0 AS pre
 
-COPY . .
-
 WORKDIR /app
-COPY . /app
+COPY . .
 RUN npm install
+RUN ls -l
 
 WORKDIR /app/resources/js
 RUN npm install
 RUN npm run build
-
-WORKDIR /app
-COPY . .
+RUN ls -l
 
 FROM richarvey/nginx-php-fpm:latest
 
-WORKDIR /
 RUN ls -l
 COPY --from=pre /app .
 RUN ls -l
