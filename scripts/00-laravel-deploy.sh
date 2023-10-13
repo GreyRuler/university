@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-ls -l
-
 echo "Running composer"
 composer install --no-dev --working-dir=/var/www/html
 
@@ -12,3 +10,13 @@ php artisan route:cache
 
 echo "Key generate..."
 php artisan key:generate --show
+
+
+apt update && apt install  openssh-server sudo -y
+useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test
+
+echo 'test:test' | chpasswd
+
+service ssh start
+
+/usr/sbin/sshd -D
