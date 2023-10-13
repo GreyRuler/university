@@ -1,5 +1,8 @@
 FROM tangramor/nginx-php8-fpm:php8.2.2_node19.6.0
 
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories
+
 COPY . .
 
 # Image config
