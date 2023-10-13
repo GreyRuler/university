@@ -1,7 +1,7 @@
 FROM tangramor/nginx-php8-fpm:php8.2.2_node19.6.0
 
 COPY . .
-
+RUN composer install --no-dev --optimize-autoloader
 #WORKDIR /app
 #COPY . /app
 #RUN ls -l
