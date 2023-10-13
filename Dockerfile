@@ -11,7 +11,8 @@ RUN npm install
 RUN npm run build
 
 WORKDIR /
-COPY . .
+COPY /app .
+RUN ls -l
 
 # Image config
 ENV SKIP_COMPOSER 1
