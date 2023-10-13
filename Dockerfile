@@ -36,3 +36,4 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 #CMD ["chmod +x 00-laravel-deploy.sh"]
 #CMD ["/00-laravel-deploy.sh"]
+CMD ["/start.sh"]
