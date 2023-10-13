@@ -20,6 +20,14 @@ COPY . .
 WORKDIR .
 RUN ls -l
 
+RUN echo "Caching config..."
+RUN php artisan config:cache
+RUN echo "Caching routes..."
+RUN php artisan route:cache
+RUN echo "Key generate..."
+RUN php artisan key:generate --show
+
+
 # Image config
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
