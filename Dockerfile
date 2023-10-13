@@ -21,8 +21,10 @@ RUN ls -l
 
 FROM richarvey/nginx-php-fpm:latest
 
+RUN ls -l
+
 COPY --from=pre . .
-WORKDIR /app
+WORKDIR .
 RUN ls -l
 
 # Image config
