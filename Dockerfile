@@ -4,17 +4,12 @@ RUN ls -l
 COPY . .
 RUN ls -l
 
-WORKDIR /app
-COPY . /app
 RUN npm install
 RUN composer install --no-dev --optimize-autoloader
 
-WORKDIR /app/resources/js
+WORKDIR /resources/js
 RUN npm install
 RUN npm run build
-
-WORKDIR /app
-COPY . .
 
 WORKDIR .
 RUN ls -l
