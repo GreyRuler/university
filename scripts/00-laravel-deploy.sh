@@ -11,9 +11,6 @@ php artisan route:cache
 echo "Key generate..."
 php artisan key:generate --show
 
-npm -v
-node -v
-
 #apt update && apt install openssh-server sudo -y
 #useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test
 #
