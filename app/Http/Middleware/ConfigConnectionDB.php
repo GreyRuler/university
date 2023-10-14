@@ -18,7 +18,7 @@ class ConfigConnectionDB
         $connectionName = $request->query('connectionName');
         config(["database.connections.$connectionName" => [
             'driver' => 'sqlite',
-            'database' => storage_path("app\\databases\\$connectionName"),
+            'database' => storage_path("app/databases/$connectionName"),
             'prefix' => '',
         ]]);
         return $next($request);

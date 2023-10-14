@@ -19,3 +19,5 @@ php artisan key:generate --show
 #service ssh start
 #
 #/usr/sbin/sshd -D
+
+php --ini
