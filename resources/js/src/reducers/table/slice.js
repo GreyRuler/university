@@ -3,8 +3,12 @@ import axiosClient from "../../axios-client.js";
 
 
 export const tables = createAsyncThunk('table/tables', async ({qParams}) => {
-    const {data: {data, columns} } = await axiosClient.get(`/tables/?${qParams}`)
-    return {data, columns, qParams}
+    try {
+        const {data: {data, columns} } = await axiosClient.get(`/tables/?${qParams}`)
+        return {data, columns, qParams}
+    } catch (error) {
+        return {error: error.message}
+    }
 })
 
 export const storeRow = createAsyncThunk('table/storeRow', async ({formData}, {getState}) => {
@@ -32,6 +36,7 @@ const initialState = {
         columns: [],
         qParams: '',
         loading: false,
+        error: null,
     }
 }
 
@@ -44,15 +49,17 @@ const tableSlice = createSlice({
                 state.value = {
                     ...state.value,
                     loading: true,
+                    error: null,
                 }
             })
             .addCase(tables.fulfilled, (state, action) => {
-                const {data, columns, qParams} = action.payload
+                const {data, columns, qParams, error} = action.payload
                 state.value = {
                     ...state.value,
                     data,
-                    columns,
+                    columns: columns.filter(item => item !== 'id'),
                     qParams,
+                    error,
                     loading: false,
                 }
             })

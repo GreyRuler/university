@@ -10,7 +10,9 @@ import {Loading} from "../Loading.jsx";
 export function Table() {
     const [searchParams] = useSearchParams()
     const tableName = searchParams.get('tableName')
-    const {data, columns, loading} = useSelector((state) => state.tableReducer.value)
+    const {data, columns, loading, error} = useSelector(
+        (state) => state.tableReducer.value
+    )
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -20,6 +22,10 @@ export function Table() {
 
     if (loading) return (
         <Loading/>
+    )
+
+    if (error) return (
+        <div>Error</div>
     )
 
     if (!data?.length) return (

@@ -18,17 +18,23 @@ export function TableRow({row}) {
     }
     const onShow = () => setIsOpened(true)
     const onDelete = () => {
+        const isConfirm = confirm('Вы действительно хотите удалить запись?')
+        if (!isConfirm) return
         dispatch(deleteRow({id: row.id}))
     }
+    const rowWithoutId = Object.keys(row).reduce((curr, key) => {
+        if (key !== 'id') curr[key] = row[key]
+        return curr
+    }, {})
 
     return (
         <tr>
-            {Object.values(row).map((cellData, index) => (
+            {Object.values(rowWithoutId).map((cellData, index) => (
                 <td key={index}>{cellData}</td>
             ))}
             <td>
                 <DialogModal title={'Редактирование записи'} isOpened={isOpened} onClose={onClose} onSubmit={onSubmit}>
-                    {Object.keys(row).map((item, i) => <Input name={item} key={i} value={row[item]}/>)}
+                    {Object.keys(rowWithoutId).map((item, i) => <Input name={item} key={i} value={rowWithoutId[item]}/>)}
                 </DialogModal>
                 <button className='option' onClick={onShow}>
                     <svg xmlns="http://www.w3.org/2000/svg"

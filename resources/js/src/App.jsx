@@ -6,6 +6,7 @@ import {Tabs} from "./components/table/Tabs.jsx";
 import {Table} from "./components/table/Table.jsx";
 import {useSelector} from "react-redux";
 import axiosClient from "./axios-client.js";
+import {DownloadFile} from "./components/DownloadFile.jsx";
 
 function App() {
     const [tabs, setTabs] = useState([])
@@ -23,7 +24,10 @@ function App() {
 
     return (
         <div className='app'>
-            <UploadFile types='.db,.sqlite'/>
+            <div className='section-load'>
+                <UploadFile types='.db,.sqlite'/>
+                <DownloadFile types='.db,.sqlite'/>
+            </div>
             <div className='container'>
                 <Tabs tabs={tabs}/>
                 <Table/>
